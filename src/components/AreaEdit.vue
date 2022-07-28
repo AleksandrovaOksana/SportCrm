@@ -26,7 +26,7 @@
                 <label for="newName">Название</label>
                 <div v-for="error of v$.name.$silentErrors" :key="error.$uid">
                     <span class="helper-text invalid">
-                        Введите название зала
+                        Введите название площадки
                     </span>
                 </div>
             </div>
@@ -69,7 +69,6 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import {required} from '@vuelidate/validators'
-import vSelect from "vue-select";
 
 export default{
     setup() {
@@ -130,7 +129,7 @@ export default{
                 }
                 console.log(areaData)
                 await this.$store.dispatch('updateArea', areaData)
-                this.$message('Зал успешно обновлен')
+                this.$message('площадка успешно обновлена')
                 this.$emit('updated', areaData)
 
             } catch (e) {console.log(e)}
@@ -140,7 +139,9 @@ export default{
       }
     },
       async mounted(){
+        // eslint-disable-next-line no-undef
         M.updateTextFields();
+        // eslint-disable-next-line no-undef
         this.select = M.FormSelect.init(this.$refs.select);
         this.cities = await this.$store.dispatch('getCities', '')
 
@@ -149,9 +150,6 @@ export default{
         if (this.select && this.select.destroy) {
             this.select.destroy()
         }
-    },
-    components: {
-      vSelect
     }
 }
 </script>

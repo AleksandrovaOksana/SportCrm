@@ -5,7 +5,7 @@
 
     
 
-    <main class="app-content" :class="{full: !isOpen}">
+    <main class="app-content" >
       <div class="app-page">
         <router-view />
       </div>
@@ -37,6 +37,7 @@ export default {
       // }
     },
     computed: {
+      // eslint-disable-next-line vue/return-in-computed-property
         error() {
             this.$store.getters.error
         }

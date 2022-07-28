@@ -3,31 +3,31 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>Сумма</th>
-        <th>Дата</th>
-        <th>Категория</th>
-        <th>Тип</th>
-        <th>Открыть</th>
+        <th>Площадка</th>
+        <th>Описание</th>
+        <th>Время работы</th>
+        <th>Адрес</th>
       </tr>
       </thead>
 
       <tbody>
-      <tr v-for="(record, idx) of records" :key="record.id">
+      <tr v-for="(area, idx) of areas" :key="area.id">
         <td>{{idx + 1}}</td>
-        <td>{{record.amount}} Р</td>
-        <td>{{record.date}}</td>
-        <td>{{record.categoryName}}</td>
+        <td>{{area.name}} </td>
+        <td>{{area.description}} </td>
+        <td>{{area.work_time}}</td>
+        <td>{{area.address}}</td>
         <td>
           <span 
-          :class="[record.typeClass]"
+          :class="[area.typeClass]"
           class="white-text badge"
-          >{{record.typeText}}</span>
+          >{{area.typeText}}</span>
         </td>
         <td>
           <button 
-          v-tooltip="'Посмотреть запись'"
+          v-tooltip="'Посмотреть площадку'"
           class="btn-small btn" 
-          @click="$router.push('/detail/' + record.id)"
+          @click="$router.push('/detail/' + area.id)"
           >
             <i class="material-icons">open_in_new</i>
           </button>
@@ -40,10 +40,11 @@
 <script>
 export default {
     props: {
-        records: {
+        areas: {
             required: true,
             type: Array
         }
-    }
+    },
+
 }
 </script>

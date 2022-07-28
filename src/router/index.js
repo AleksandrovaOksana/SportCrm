@@ -21,6 +21,12 @@ const routes = [
     component: () => import('@/views/HomeView.vue')
   },
   {
+    path: '/areas',
+    name: 'areas',
+    meta: {layout: 'main', auth: true},
+    component: () => import('@/views/AreasView.vue')
+  },
+  {
     path: '/categories',
     name: 'categories',
     meta: {layout: 'main', auth: true},
@@ -33,28 +39,16 @@ const routes = [
     component: () => import('@/views/DetailView.vue')
   },
   {
-    path: '/history',
-    name: 'history',
+    path: '/map',
+    name: 'map',
     meta: {layout: 'main', auth: true},
-    component: () => import('@/views/HistoryView.vue')
-  },
-  {
-    path: '/planning',
-    name: 'planning',
-    meta: {layout: 'main', auth: true},
-    component: () => import('@/views/PlanningView.vue')
+    component: () => import('@/views/MapView.vue')
   },
   {
     path: '/profile',
     name: 'profile',
     meta: {layout: 'main', auth: true},
     component: () => import('@/views/ProfileView.vue')
-  },
-  {
-    path: '/record',
-    name: 'record',
-    meta: {layout: 'main', auth: true},
-    component: () => import('@/views/RecordView.vue')
   }
 ]
 

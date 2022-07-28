@@ -15,7 +15,7 @@
           <label for="name">Название</label>
           <div v-for="error of v$.name.$silentErrors" :key="error.$uid">
                     <span class="helper-text invalid">
-                        Введите название зала
+                        Введите название площадки
                     </span>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import { createStore } from 'vuex'
 import auth from './auth'
+import area from './area'
 import category from './category'
 import account from './account'
-import record from './record'
+import geolocation from "@/store/geolocation";
 
 export default createStore({
   state: {
@@ -49,6 +50,6 @@ export default createStore({
     
   },
   modules: {
-    auth, category, account, record
+    auth, area, account, geolocation, category
   }
 })

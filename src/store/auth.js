@@ -33,6 +33,7 @@ export default {
             }
             
         },
+        // eslint-disable-next-line no-empty-pattern
         async getUser({}, config) {
             const response = await axios.get('http://crm.test/api/auth/me',config)
             const user = response.data.user

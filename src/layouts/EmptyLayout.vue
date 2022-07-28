@@ -7,6 +7,7 @@
 import messages from '@/utils/messages'
 export default {
     computed: {
+      // eslint-disable-next-line vue/return-in-computed-property
         error() {
             this.$store.getters.error
         }

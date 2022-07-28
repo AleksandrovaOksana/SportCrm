@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-    name: 'detail',
+    name: 'detailView',
     data: () => ({
         record: null,
         loading: true

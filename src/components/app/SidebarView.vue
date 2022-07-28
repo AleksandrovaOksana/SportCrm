@@ -22,9 +22,8 @@ export default {
  data: () => ({
   links: [
     {title: 'Счет', url: '/'},
-    {title: 'История', url: '/history'},
-    {title: 'Планирование', url: '/planning'},
-    {title: 'Новая запись', url: '/record'},
+    {title: 'Карта', url: '/map'},
+    {title: 'Площадки', url: '/areas'},
     {title: 'Категории', url: '/categories'}
   ]
  })
