@@ -1,5 +1,6 @@
 const tooltip = {
     mounted(el, {value}) {
+        // eslint-disable-next-line no-undef
         M.Tooltip.init(el, {html: value})
     },
     unmounted(el) {
