@@ -5,7 +5,7 @@ export default {
             try {
                 const config = await context.getters.configRequestHeaders
                 queryString = queryString ? '?name='+queryString : ''
-                const result = await axios.get('http://crm.test/api/v1/cities/'+queryString, config)
+                const result = await axios.get(process.env.BACKEND_API+'cities/'+queryString, config)
 
                 return result.data.cities
             }catch (e) {

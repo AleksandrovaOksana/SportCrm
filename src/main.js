@@ -12,7 +12,7 @@ import 'materialize-css/dist/js/materialize.min'
 import YmapPlugin from 'vue-yandex-maps'
 
 const settings = {
-    apiKey: '9f333cd7-7ce1-42de-b86d-080d6f25fe71',
+    apiKey: process.env.YANDEX_API_KEY,
     lang: 'ru_RU',
     coordorder: 'latlong',
     enterprise: false,

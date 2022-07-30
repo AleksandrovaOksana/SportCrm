@@ -4,7 +4,7 @@ export default{
         async fetchAreas(context){
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.get('http://crm.test/api/v1/area', config)
+                const result = await axios.get(process.env.BACKEND_API+'area', config)
 
                 return result.data.areas
                 
@@ -17,7 +17,7 @@ export default{
         async fetchAreaById(context, id){
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.get('http://crm.test/api/v1/area/' + id, config)
+                const result = await axios.get(process.env.BACKEND_API+'area/' + id, config)
                 const area = result.data
                 return {...area, id}
                 
@@ -30,7 +30,7 @@ export default{
         async updateArea(context, {id, name, description, work_time}) {
             try {
                 const config = await context.getters.configRequestHeaders
-                const result= await axios.put('http://crm.test/api/v1/area/update/'+id, {name, description, work_time}, config)
+                const result= await axios.put(process.env.BACKEND_API+'area/update/'+id, {name, description, work_time}, config)
                 console.log(result)
             }catch (e) {
                 await context.commit('setError', e)
@@ -40,7 +40,7 @@ export default{
         async createArea(context, {name, description, work_time, city, street, house, building}) {
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.post('http://crm.test/api/v1/area/add', {name, description, work_time, city, street, house, building}, config)
+                const result = await axios.post(process.env.BACKEND_API+'area/add', {name, description, work_time, city, street, house, building}, config)
                 return result.data.area
             }catch (e) {
                 await context.commit('setError', e)

@@ -6,7 +6,7 @@ export default{
                 const config = await context.getters.configRequestHeaders
                 const user = await context.getters.user
                 console.log(user)
-                const result = await axios.get('http://crm.test/api/account/' + user.id, config) 
+                const result = await axios.get(process.env.BACKEND_API+'account/' + user.id, config)
                 context.commit('setAccount', result.data.account)
                 return result.data.account
 

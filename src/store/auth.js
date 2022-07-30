@@ -3,7 +3,7 @@ export default {
     actions: {
         async login(context, {email, password}){
             try{
-                const result = await axios.post('http://crm.test/api/auth/login', {email, password}) 
+                const result = await axios.post(process.env.BACKEND_API+'auth/login', {email, password})
 
                 await context.commit('setToken', result.data)
                 const user = await context.dispatch('getUser', context.getters.configRequestHeaders)
@@ -16,12 +16,12 @@ export default {
         },
         async register(context, {email, password, name}) {
             try{
-                const result = await axios.post('http://crm.test/api/auth/register', {email, password, name})
+                const result = await axios.post(process.env.BACKEND_API+'auth/register', {email, password, name})
                 await context.commit('setToken', result.data)
                 await context.dispatch ('autoRefresh')
                 const user = await context.dispatch('getUser', context.getters.configRequestHeaders)
                 await context.commit('setUser', user)
-                await axios.post('http://crm.test/api/account/store', {total: 10000, uid: user.id}, context.getters.configRequestHeaders).then((response) => {
+                await axios.post(process.env.BACKEND_API+'account/store', {total: 10000, uid: user.id}, context.getters.configRequestHeaders).then((response) => {
                     if(response.data.uid){
                         this.$message('Начальный аккаунт успешно создан')
                     }
@@ -35,17 +35,17 @@ export default {
         },
         // eslint-disable-next-line no-empty-pattern
         async getUser({}, config) {
-            const response = await axios.get('http://crm.test/api/auth/me',config)
+            const response = await axios.get(process.env.BACKEND_API+'auth/me',config)
             const user = response.data.user
             return user ? user : null
         },
         async logout() {
-            await axios.get('http://crm.test/api/auth/logout').then((response) => {
+            await axios.get(process.env.BACKEND_API+'auth/logout').then((response) => {
                 console.log(response)
             })
         },
         async refreshToken({commit}){
-            const response = await axios.get('http://crm.test/api/auth/refresh', this.$store.getters.configRequestHeaders)
+            const response = await axios.get(process.env.BACKEND_API+'auth/refresh', this.$store.getters.configRequestHeaders)
             commit('setToken', response.data)
             this.autoRefresh()
         },
