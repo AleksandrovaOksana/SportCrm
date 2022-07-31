@@ -7,10 +7,10 @@
             id="email"
             type="text"
             v-model.trim="email"
-            :class="{invalid:$v.email.$silentErrors.length}"  
+            :class="{invalid:v$.email.$silentErrors.length}"
         >
         <label for="email">Email</label>
-        <div  v-for="error of $v.email.$silentErrors" :key="error.$uid">
+        <div  v-for="error of v$.email.$silentErrors" :key="error.$uid">
             <small class="helper-text invalid">{{this.translateErrorValidates(error.$validator)}}</small>
 
         </div>
@@ -20,10 +20,10 @@
             id="password"
             type="password"
             v-model.trim="password"
-            :class="{invalid:$v.password.$silentErrors.length}"  
+            :class="{invalid:v$.password.$silentErrors.length}"
         >
         <label for="password">Пароль</label>
-        <div v-for="error of $v.password.$silentErrors" :key="error.$uid">
+        <div v-for="error of v$.password.$silentErrors" :key="error.$uid">
             <small class="helper-text invalid">{{(error.$validator == 'min') ? this.translateErrorValidates(error.$validator) + $v.password.min.$params.min : this.translateErrorValidates(error.$validator) }} </small>
         </div>   
     </div>
@@ -32,10 +32,10 @@
           id="name"
           type="text"
           v-model.trim="name"
-          :class="{invalid:$v.name.$silentErrors.length}"  
+          :class="{invalid:v$.name.$silentErrors.length}"
       >
       <label for="name">Имя</label>
-      <div v-for="error of $v.name.$silentErrors" :key="error.$uid">
+      <div v-for="error of v$.name.$silentErrors" :key="error.$uid">
       <small class="helper-text invalid">{{this.translateErrorValidates(error.$validator)}}</small>
       </div>
     </div>
@@ -71,8 +71,10 @@ import formValidatesMessages from '@/utils/formValidatesMessages.plugin'
 
 export default {
   setup () {
-            return { $v: useVuelidate() }
-        },
+    return {
+      v$: useVuelidate()
+    }
+  },
         name: 'register-page',
         data (){
             return {
@@ -92,7 +94,7 @@ export default {
         },
         methods: {
           async submitHandler(){
-            const isFormCorrect = await this.$v.$validate()
+            const isFormCorrect = await this.v$.$validate()
             if (!isFormCorrect) return
             const formData = {
                 email: this.email,
@@ -101,7 +103,7 @@ export default {
             }
             try{
             await this.$store.dispatch('register', formData)
-            this.$router.push('/')
+            await this.$router.push('/')
             } catch (e) {console.log(e) }
             },
             translateErrorValidates(validator) {
