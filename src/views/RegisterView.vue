@@ -24,7 +24,7 @@
         >
         <label for="password">Пароль</label>
         <div v-for="error of v$.password.$silentErrors" :key="error.$uid">
-            <small class="helper-text invalid">{{(error.$validator == 'min') ? this.translateErrorValidates(error.$validator) + $v.password.min.$params.min : this.translateErrorValidates(error.$validator) }} </small>
+            <small class="helper-text invalid">{{(error.$validator == 'min') ? this.translateErrorValidates(error.$validator) + v$.password.min.$params.min : this.translateErrorValidates(error.$validator) }} </small>
         </div>   
     </div>
     <div class="input-field">
