@@ -31,11 +31,6 @@ export default {
     components: {
         Navbar, Sidebar
     },
-    beforeCreate() {
-      // if (this.$store.getters.token.expires_in <= 0) {
-      //   this.$store.dispatch('refreshToken')
-      // }
-    },
     computed: {
       // eslint-disable-next-line vue/return-in-computed-property
         error() {

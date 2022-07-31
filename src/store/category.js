@@ -16,7 +16,7 @@ export default{
         async fetchCategoryById(context, id){
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.get(process.env.BACKEND_API+'group/category/' + id, config)
+                const result = await axios.get(process.env.VUE_APP_BACKEND_API+'group/category/' + id, config)
                 const category = result.data
                 return {...category, id}
 
@@ -30,7 +30,7 @@ export default{
             try {
 
                 const config = await context.getters.configRequestHeaders
-                const result= await axios.put(process.env.BACKEND_API+'category/update/'+id, {name}, config)
+                const result= await axios.put(process.env.VUE_APP_BACKEND_API+'category/update/'+id, {name}, config)
                 console.log(result)
             }catch (e) {
                 await context.commit('setError', e)
@@ -40,7 +40,7 @@ export default{
         async createCategory(context, {name}) {
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.post(process.env.BACKEND_API+'group/category/add', {name}, config)
+                const result = await axios.post(process.env.VUE_APP_BACKEND_API+'group/category/add', {name}, config)
                 return {name, id: result.data.id}
             }catch (e) {
                 await context.commit('setError', e)

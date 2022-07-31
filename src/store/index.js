@@ -38,12 +38,14 @@ export default createStore({
     clearConfigRequestHeaders(state){
       state.configRequestHeaders = null
     },
-    async setToken(state, token){
+    async setToken(state, token, autoRefresh = true){
 
       state.token = token
-      const config ={ headers: {"Authorization" : `Bearer ${token.access_token}`} };
+      const config = { headers: {"Authorization" : `Bearer ${token.access_token}`} };
       await this.commit('setConfigRequestHeaders', config)
-
+      if(autoRefresh){
+        await this.dispatch('autoRefresh')
+      }
     }
   },
   actions: {
