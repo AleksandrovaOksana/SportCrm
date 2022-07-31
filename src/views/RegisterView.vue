@@ -92,7 +92,7 @@ export default {
         },
         methods: {
           async submitHandler(){
-            const isFormCorrect = await this.v$.$validate()
+            const isFormCorrect = await this.$v.$validate()
             if (!isFormCorrect) return
             const formData = {
                 email: this.email,
