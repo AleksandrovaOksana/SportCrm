@@ -20,12 +20,7 @@ export default {
                 await context.commit('setToken', result.data)
                 const user = await context.dispatch('getUser', context.getters.configRequestHeaders)
                 await context.commit('setUser', user)
-                await axios.post(process.env.BACKEND_API+'account/store', {total: 10000, uid: user.id}, context.getters.configRequestHeaders).then((response) => {
-                    if(response.data.uid){
-                        this.$message('Начальный аккаунт успешно создан')
-                    }
-
-                })
+                return user
             } catch (e){
                 context.commit('setError', e)
                 throw e

@@ -102,7 +102,10 @@ export default {
                 name: this.name
             }
             try{
-            await this.$store.dispatch('register', formData)
+            const user = await this.$store.dispatch('register', formData)
+            if(user.id){
+              this.$message('Начальный аккаунт успешно создан')
+            }
             await this.$router.push('/')
             } catch (e) {console.log(e) }
             },

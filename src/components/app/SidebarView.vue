@@ -21,7 +21,7 @@ export default {
  props: {value: Boolean},
  data: () => ({
   links: [
-    {title: 'Счет', url: '/'},
+    {title: 'Аккаунт', url: '/'},
     {title: 'Карта', url: '/map'},
     {title: 'Площадки', url: '/areas'},
     {title: 'Категории', url: '/categories'}

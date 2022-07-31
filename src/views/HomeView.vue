@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="page-title">
-    <h3>Счет</h3>
+    <h3>Аккаунт</h3>
 
     <button class="btn waves-effect waves-light btn-small">
       <i class="material-icons">refresh</i>
@@ -12,10 +12,18 @@
     <div class="col s12 m6 l4">
       <div class="card light-blue bill-card">
         <div class="card-content white-text">
-          <span class="card-title">Счет в валюте</span>
+          <span class="card-title">Максимум учеников</span>
 
           <p class="currency-line">
-            <span v-if="this.account">{{this.account.total}} Р</span>
+            <span v-if="this.user">{{this.user.account.maxPupils}}</span>
+            <span v-else>Нет данных</span>
+          </p>
+        </div>
+        <div class="card-content white-text">
+          <span class="card-title">Сейчас учеников</span>
+
+          <p class="currency-line">
+            <span v-if="this.user">{{this.user.account.pupils}}</span>
             <span v-else>Нет данных</span>
           </p>
         </div>
@@ -59,11 +67,19 @@
 export default {
   name: 'HomeView',
   data: () => ({
-    account: null
+    account: null,
+    user: null
   }),
   async mounted(){
-     const result = await this.$store.dispatch('getAccount')
-     this.account = result
+    this.user = this.$store.getters.user
+    console.log(this.user)
+     // const result = await this.$store.dispatch('getAccount')
+     // this.account = result
   }
 }
 </script>
+<style>
+.bill-card{
+  height: 400px
+}
+</style>

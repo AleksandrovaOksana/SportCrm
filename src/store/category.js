@@ -4,7 +4,7 @@ export default{
         async fetchCategories(context){
             try {
                 const config = await context.getters.configRequestHeaders
-                const result = await axios.get(process.env.BACKEND_API+'group/category', config)
+                const result = await axios.get(process.env.VUE_APP_BACKEND_API+'group/category', config)
                 return result.data.categories
 
 
