@@ -1,28 +1,39 @@
 <template>
-  <div class="mapsPage">
+  <div>
+    <ul id="tabs-swipe-demo" class="tabs">
+      <li class="tab col s3"><a href="#test-swipe-1">Карта</a></li>
+      <li class="tab col s3"><a href="#test-swipe-2">Таблица</a></li>
+      <li class="tab col s3">
+        <router-link to="/areas/edit">Редактирование площадок</router-link>
+      </li>
+    </ul>
+      <div class="mapsPage col s12" id="test-swipe-1">
+        <yandex-map
+            :zoom="10"
+            :coords="coords">
+          <ymap-marker
+              @click="onClick"
+              v-for="a of areas"
+              :options="a.id"
+              :key="a.id"
+              :properties="a"
+              marker-id="a.id"
+              :coords="a.coords"
+              :balloon-template="balloonTemplate"
+              @balloonopen="bindListener"
+          />
 
-    <yandex-map
-        :zoom="10"
-        :coords="coords">
-      <ymap-marker
-          @click="onClick"
-          v-for="a of areas"
-          :options="a.id"
-          :key="a.id"
-          :properties="a"
-          marker-id="a.id"
-          :coords="a.coords"
-          :balloon-template="balloonTemplate"
-          @balloonopen="bindListener"
-      />
-
-    </yandex-map>
+        </yandex-map>
+      </div>
+      <AreasTable id="test-swipe-2" class="col s12" :areas="areas" />
   </div>
+
 </template>
 
 <script>
 import {yandexMap, ymapMarker} from 'vue-yandex-maps'
-
+import AreasTable from "@/components/AreasTable";
+import M from 'materialize-css'
 
 export default {
   data: () => ({
@@ -59,6 +70,7 @@ export default {
   },
   async mounted() {
     this.areas = await this.$store.dispatch('fetchAreas')
+    M.Tabs.init(document.querySelector("#tabs-swipe-demo"));
   },
   methods: {
     onClick(e) {
@@ -71,7 +83,7 @@ export default {
       this.$router.push('/detail/' + this.current.id)
     }
   },
-  components: {yandexMap, ymapMarker}
+  components: {yandexMap, ymapMarker, AreasTable}
 }
 </script>
 <style>

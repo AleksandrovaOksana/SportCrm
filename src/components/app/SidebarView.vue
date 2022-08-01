@@ -23,7 +23,6 @@ export default {
   links: [
     {title: 'Аккаунт', url: '/'},
     {title: 'Карта', url: '/map'},
-    {title: 'Площадки', url: '/areas'},
     {title: 'Категории', url: '/categories'}
   ]
  })

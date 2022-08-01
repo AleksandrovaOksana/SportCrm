@@ -21,8 +21,8 @@ const routes = [
     component: () => import('@/views/HomeView.vue')
   },
   {
-    path: '/areas',
-    name: 'areas',
+    path: '/areas/edit',
+    name: '/areas/edit',
     meta: {layout: 'main', auth: true},
     component: () => import('@/views/AreasView.vue')
   },

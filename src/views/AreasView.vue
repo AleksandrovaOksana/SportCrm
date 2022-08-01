@@ -15,7 +15,6 @@
         />
         <p v-else class="center">Площадок пока нет</p>
         </div>
-      <AreasTable :areas="areas" />
     </section>
     </div>
 </template>
@@ -23,7 +22,6 @@
 <script>
 import AreaCreate from '@/components/AreaCreate'
 import AreaEdit from '@/components/AreaEdit'
-import AreasTable from "@/components/AreasTable";
 export default{
     name: 'areasView',
     data: () => ({
@@ -36,7 +34,6 @@ export default{
         this.loading = false
     },
     components: {
-      AreasTable,
       AreaCreate, AreaEdit
     },
     methods:{

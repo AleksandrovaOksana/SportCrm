@@ -6,6 +6,7 @@
       </div>
       <form @submit.prevent="submitHandler">
         <div class="input-field" >
+
           <select ref="select" v-model="current">
             <option v-for="c of categories"
                     :key="c.id"
@@ -74,7 +75,6 @@ export default{
     const {id, name} = this.categories[0]
     this.current = id
     this.name = name
-    console.log(id)
   },
   methods: {
     async submitHandler() {
