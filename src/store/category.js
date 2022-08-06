@@ -41,7 +41,7 @@ export default{
             try {
                 const config = await context.getters.configRequestHeaders
                 const result = await axios.post(process.env.VUE_APP_BACKEND_API+'group/category/add', {name}, config)
-                return {name, id: result.data.id}
+                return result.data.category
             }catch (e) {
                 await context.commit('setError', e)
                 throw e

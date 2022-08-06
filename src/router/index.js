@@ -33,14 +33,20 @@ const routes = [
     component: () => import('@/views/CategoriesView.vue')
   },
   {
-    path: '/detail/:id',
-    name: 'detail',
+    path: '/group/:id',
+    name: 'group',
     meta: {layout: 'main', auth: true},
-    component: () => import('@/views/DetailView.vue')
+    component: () => import('@/views/GroupView.vue')
   },
   {
-    path: '/map',
-    name: 'map',
+    path: '/group/create/:id',
+    name: 'groupCreate',
+    meta: {layout: 'main', auth: true},
+    component: () => import('@/views/GroupCreate.vue')
+  },
+  {
+    path: '/areas',
+    name: 'areas',
     meta: {layout: 'main', auth: true},
     component: () => import('@/views/MapView.vue')
   },

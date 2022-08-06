@@ -25,9 +25,9 @@
         </td>
         <td>
           <button 
-          v-tooltip="'Посмотреть площадку'"
+          v-tooltip="'Посмотреть группы'"
           class="btn-small btn" 
-          @click="$router.push('/detail/' + area.id)"
+          @click="$router.push('/group/' + area.id)"
           >
             <i class="material-icons">open_in_new</i>
           </button>

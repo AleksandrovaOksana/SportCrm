@@ -4,6 +4,7 @@ import area from './area'
 import category from './category'
 import account from './account'
 import geolocation from "@/store/geolocation";
+import group from "@/store/group";
 
 export default createStore({
   state: {
@@ -52,6 +53,6 @@ export default createStore({
     
   },
   modules: {
-    auth, area, account, geolocation, category
+    auth, area, account, geolocation, category, group
   }
 })
