@@ -40,6 +40,7 @@ export default {
     }
   },
   async mounted() {
+    // eslint-disable-next-line no-async-promise-executor
     let promise = new Promise (async (resolve) => {
     this.areas = await this.$store.dispatch('fetchAreas')
     const {id, name} = this.areas[0]
@@ -53,18 +54,18 @@ export default {
     } )
     console.log(this.areas)
 
-    const elemsGroups = document.querySelectorAll('select')
-    const instancesGroups = M.FormSelect.init(elemsGroups, {})
-
-    const elemsDataPicker = document.querySelectorAll('.datepicker')
-    const instancesDataPicker = M.Datepicker.init(elemsDataPicker, {})
-
-    const elemsTimePicker = document.querySelectorAll('.timepicker')
-    const instancesTimePicker = M.Timepicker.init(elemsTimePicker, {})
-
-    const elems = document.querySelectorAll('.modal')
-    const instances = M.Modal.init(elems, {})
-  }
+    // const elemsGroups = document.querySelectorAll('select')
+  //   const instancesGroups = M.FormSelect.init(elemsGroups, {})
+  //
+  //   const elemsDataPicker = document.querySelectorAll('.datepicker')
+  //   const instancesDataPicker = M.Datepicker.init(elemsDataPicker, {})
+  //
+  //   const elemsTimePicker = document.querySelectorAll('.timepicker')
+  //   const instancesTimePicker = M.Timepicker.init(elemsTimePicker, {})
+  //
+  //   const elems = document.querySelectorAll('.modal')
+  //   const instances = M.Modal.init(elems, {})
+   }
 }
 </script>
 <style lang="css">

@@ -6,7 +6,6 @@
 <script>
 import {Qalendar} from "qalendar";
 import '../../../node_modules/qalendar/dist/style.css';
-import M from 'materialize-css'
 export default {
   components: {
     Qalendar,

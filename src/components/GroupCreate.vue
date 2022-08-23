@@ -59,6 +59,7 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import {required} from '@vuelidate/validators'
+import M from 'materialize-css'
 export default{
 
   props: {
