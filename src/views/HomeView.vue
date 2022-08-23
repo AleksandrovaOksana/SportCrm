@@ -9,6 +9,10 @@
   </div>
 
   <div class="row">
+    <CalendarView />
+      <v-calendar is-expanded />
+      <v-date-picker v-model="date" is-expanded />
+
     <div class="col s12 m6 l4">
       <div class="card light-blue bill-card">
         <div class="card-content white-text">
@@ -64,11 +68,14 @@
 // @ is an alias to /src
 
 
+import CalendarView from "@/components/Calendar/CalendarView";
 export default {
   name: 'HomeView',
+  components: {CalendarView},
   data: () => ({
     account: null,
-    user: null
+    user: null,
+    date: null
   }),
   async mounted(){
     this.user = this.$store.getters.user

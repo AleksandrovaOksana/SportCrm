@@ -10,6 +10,8 @@ import messagePlugin from './utils/message.plugin'
 import {tooltip} from '@/directives/tooltip.directive'
 import 'materialize-css/dist/js/materialize.min'
 import YmapPlugin from 'vue-yandex-maps'
+import 'v-calendar/dist/style.css'
+import VCalendar from 'v-calendar'
 
 const settings = {
     apiKey: process.env.VUE_APP_YANDEX_API_KEY,
@@ -23,4 +25,5 @@ const app = createApp(App).use(store).use(router).use(VuelidatePlugin).use(messa
 app.directive('tooltip', tooltip)
 app.config.globalProperties.axios=axios
 app.use(YmapPlugin, settings)
+app.use(VCalendar, {})
 app.mount('#app')

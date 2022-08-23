@@ -65,31 +65,3 @@ export default {
   },
 }
 </script>
-<!--</template>-->
-<!--<script>-->
-<!--import GroupCreate from "@/components/GroupCreate";-->
-<!--import GroupEdit from "@/components/GroupEdit";-->
-<!--export default {-->
-
-<!--  name: 'detailView',-->
-<!--  data() {-->
-<!--    return {-->
-<!--      areaId: this.$route.params.id-->
-<!--    }-->
-<!--  },-->
-<!--  components: {GroupCreate, GroupEdit},-->
-<!--  async mounted() {-->
-<!--    this.groups = await this.$store.dispatch('fetchGroups')-->
-<!--    this.loading = false-->
-<!--  },-->
-<!--  methods:{-->
-
-<!--    updateGroup(group) {-->
-<!--      const idx = this.categories.findIndex(g => g.id === group.id)-->
-<!--      this.categories[idx].name = group.name-->
-<!--      this.updateCount++-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
-<!--<template>-->

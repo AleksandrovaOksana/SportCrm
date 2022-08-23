@@ -12,24 +12,24 @@
 </main>
 
 <div class="fixed-action-btn">
-  <router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'Создать новую запись'">
-    <i class="large material-icons">add</i>
-  </router-link>
+  <a class="modal-trigger btn-floating btn-large blue" href="#modal1" v-tooltip="'Создать новое занятие'"><i class="large material-icons">add</i> </a>
 </div>
 </div>
+  <EventModal />
 </template>
 
 <script>
 import Navbar from '@/components/app/NavbarView.vue'
 import Sidebar from '@/components/app/SidebarView.vue'
 import messages from '@/utils/messages'
+import EventModal from '@/components/Calendar/EventModal'
 export default {
     name: 'main-layout',
     data: () => ({
         isOpen: true
     }),
     components: {
-        Navbar, Sidebar
+        Navbar, Sidebar, EventModal
     },
     computed: {
       // eslint-disable-next-line vue/return-in-computed-property
